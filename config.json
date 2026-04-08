@@ -35,7 +35,7 @@
         }
     },
     "active_providers": {
-        "text": "vercel",
+        "text": "openai",
         "tts": "disabled",
         "image": "disabled"
     },
@@ -44,6 +44,6 @@
     "general": {
         "fill_all_shortcut": "Ctrl+Shift+G",
         "fill_all_prompt": "",
-        "last_configured_provider": "vercel"
+        "last_configured_provider": "openai"
     }
 }
