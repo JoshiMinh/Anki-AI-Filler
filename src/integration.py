@@ -439,6 +439,10 @@ class EditorIntegration:
             config.write()
             return (True, None)
 
+        if message == "ai_filler:select_fields":
+            cls._on_select_fields(editor)
+            return (True, None)
+
         return handled
 
     @classmethod
