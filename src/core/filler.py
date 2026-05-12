@@ -14,7 +14,6 @@ from dataclasses import dataclass, field
 from typing import Any, Callable, Dict, List, Optional, TypeVar
 
 import bs4
-
 from aqt import mw
 from aqt.editor import Editor
 

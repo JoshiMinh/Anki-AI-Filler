@@ -377,8 +377,9 @@ class EditorIntegration:
 
                 # Force init check
                 webview.eval(f"if (window.aiFiller) aiFiller.init({expanded_js});")
-        except Exception as e:
-            print(f"AI Filler: Failed to inject editor assets: {e}")
+        except Exception:
+            # Asset injection failures are non-critical; UI still functions
+            pass
 
     @classmethod
     def _on_webview_did_receive_js_message(
