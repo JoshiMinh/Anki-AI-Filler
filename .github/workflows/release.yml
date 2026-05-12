@@ -15,7 +15,7 @@ permissions:
 jobs:
   test:
     name: Test (Python ${{ matrix.python-version }})
-    if: ${{ !startsWith(github.ref, 'refs/tags/v') && hashFiles('tests/**') != '' }}
+    if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -36,7 +36,12 @@ jobs:
           echo "PYTHONPATH=$GITHUB_WORKSPACE/.." >> "$GITHUB_ENV"
 
       - name: Run tests
-        run: uv run pytest tests/ -v
+        run: |
+          if [ -d tests ]; then
+            uv run pytest tests/ -v
+          else
+            echo "No tests directory found; skipping tests."
+          fi
 
   release:
     name: Release
